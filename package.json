@@ -1,0 +1,23 @@
+{
+  "name": "songwhip-bots",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "dev": "DEBUG=songwhip* nodemon --exec \"npm start\"",
+    "deploy": "now -e NODE_ENV=production"
+  },
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "body-parser": "^1.17.2",
+    "debug": "^3.0.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.4.1",
+    "express": "^4.15.4",
+    "node-fetch": "^1.7.2",
+    "node-telegram-bot-api": "^0.27.1",
+    "nodemon": "^1.11.0",
+    "telegram-bot-api": "^1.2.0"
+  }
+}
