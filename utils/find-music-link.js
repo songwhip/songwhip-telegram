@@ -13,7 +13,6 @@ module.exports = (string) => {
   if (!string) return;
   for (let regex of services) {
     const match = string.match(regex);
-    console.log(string, match, regex);
     if (match) return match[0];
   }
 };
