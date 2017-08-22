@@ -7,6 +7,7 @@ const services = [
   /https?:\/\/play\.google\.com\/music\/.+\/(?:[B|A|T])([a-z0-9]+)/,
   /https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(?:.+)/,
   /https?:\/\/(?:www\.)?youtu.be\/(?:.+)/,
+  /https?:\/\/soundcloud\.com\/(.+?)\/(.+)/,
 ];
 
 module.exports = (string) => {
