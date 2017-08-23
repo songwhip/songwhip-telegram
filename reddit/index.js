@@ -60,7 +60,7 @@ async function onSubmission(post) {
   }
 
   const url = `${json.url}?utm_source=reddit&utm_medium=songwhip-helper&utm_campaign=convert-link`;
-  reply(post, `👉 [Here's a single link](${url}) to listen to "${json.name}" on every music streaming service (free) 🎶`);
+  reply(post, `[Here's a single link](${url}) to listen to "${json.name}" on every music streaming service`);
 }
 
 debug('listening to subreddits: ', subreddits);
