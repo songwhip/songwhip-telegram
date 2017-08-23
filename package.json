@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index",
     "dev": "DEBUG=songwhip* nodemon --exec \"npm start\"",
-    "deploy": "now -e NODE_ENV=production"
+    "deploy": "now -e NODE_ENV=production",
+    "alias": "now alias"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
