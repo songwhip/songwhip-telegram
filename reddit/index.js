@@ -13,6 +13,8 @@ const Snoowrap = require('snoowrap');
 
 const findLink = require('../utils/find-music-link');
 const convert = require('../utils/convert-link');
+const createText = require('./lib/create-text');
+const store = require('../utils/store');
 const reply = require('./lib/reply');
 
 const {
@@ -25,7 +27,7 @@ const {
 
 const MAX_REQUESTS_PER_MINUTE = 60;
 const subreddits = REDDIT_STREAMS.split(',');
-const pollTime = 60000 / (MAX_REQUESTS_PER_MINUTE / subreddits.length);
+const pollTime = 60000 / (MAX_REQUESTS_PER_MINUTE / subreddits.length) + 1000;
 
 const reddit = new Snoostorm(new Snoowrap({
     userAgent: 'songwhip/v1',
@@ -45,10 +47,16 @@ subreddits.forEach((subreddit) => {
 
 async function onSubmission(post) {
   debug(`new submission by ${post.author.name}`, post);
-
   const link = findLink(post.url);
+
   if (!link) {
     debug('no supported link found');
+    return;
+  }
+
+  const hasReplied = await store.hasReplied(post.id);
+  if (hasReplied) {
+    debug('abort: replied already', post.id);
     return;
   }
 
@@ -59,8 +67,8 @@ async function onSubmission(post) {
     return;
   }
 
-  const url = `${json.url}?utm_source=reddit&utm_medium=songwhip-helper&utm_campaign=convert-link`;
-  reply(post, `[Here's a single link](${url}) to listen to "${json.name}" on every music streaming service`);
+  await store.setReplied(post.id);
+  reply(post, createText(json));
 }
 
 debug('listening to subreddits: ', subreddits);

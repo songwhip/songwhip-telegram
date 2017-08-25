@@ -19,6 +19,7 @@
     "node-fetch": "^1.7.2",
     "node-telegram-bot-api": "^0.27.1",
     "nodemon": "^1.11.0",
+    "redis": "^2.8.0",
     "snoostorm": "^0.0.5",
     "snoowrap": "^1.14.2",
     "telegram-bot-api": "^1.2.0",
