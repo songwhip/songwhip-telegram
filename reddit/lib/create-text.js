@@ -22,16 +22,18 @@ function createTextArtist(artist) {
 
 function createTextAlbum(album) {
   const url = formatUrl(album.url);
-  const artistUrl = formatUrl(album.artist.url);
-  return `Here's [_${album.name}_](${url}) by [_${album.artist.name}_](${artistUrl}) on every music streaming service.`;
+  const artist = album.artists[0];
+  const artistUrl = formatUrl(artist.url);
+  return `Here's [_${album.name}_](${url}) by [_${artist.name}_](${artistUrl}) on every music streaming service.`;
 }
 
 function createTextTrack(track) {
   const url = formatUrl(track.url);
-  const { artist, album } = track;
+  const { artists, album } = track;
 
   if (!album) return;
 
+  const artist = artists[0];
   const artistUrl = formatUrl(artist.url);
   const albumUrl = formatUrl(track.album.url);
 
