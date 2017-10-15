@@ -14,7 +14,7 @@ const Snoowrap = require('snoowrap');
 const findLink = require('../utils/find-music-link');
 const convert = require('../utils/convert-link');
 const createText = require('./lib/create-text');
-const store = require('../utils/store');
+const store = require('./lib/store');
 const reply = require('./lib/reply');
 
 const {
