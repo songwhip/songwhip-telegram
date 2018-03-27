@@ -3,50 +3,50 @@
  * External Dependencies
  */
 
-const debug = require('debug')('songwhip-bots:telegram:commands');
+const debug = require('debug')('songwhip-bots:telegram:commands')
 
 /**
  * Internal Dependencies
  */
 
-const getDisplayType = require('../../utils/get-display-type');
-const createMessage = require('../utils/create-message');
-const convert = require('../../utils/convert-link');
+const getDisplayType = require('../../utils/get-display-type')
+const createMessage = require('../utils/create-message')
+const convert = require('../../utils/convert-link')
 
 module.exports = (bot) => {
   return async (message, match = [], { quiet = false } = {}) => {
-    const link = match[1];
-    debug('convert', link, message);
+    const link = match[1]
+    debug('convert', link, message)
 
     const {
       chat,
       message_id,
-    } = message;
+    } = message
 
     if (!link) {
-      bot.sendMessage(chat.id, 'Paste a music link you\'d like to convert 👇');
-      return;
+      bot.sendMessage(chat.id, 'Paste a music link you\'d like to convert 👇')
+      return
     }
 
     if (!link.startsWith('http')) {
       bot.sendMessage(chat.id, '🤔 Hmmm … that\'s not a link, try again', {
         reply_to_message_id: message_id,
-      });
+      })
 
-      return;
+      return
     }
 
-    if (!quiet) await bot.sendChatAction(message.chat.id, 'typing');
-    const json = await convert(link);
+    if (!quiet) await bot.sendChatAction(message.chat.id, 'typing')
+    const json = await convert(link)
 
     if (!json || Object.keys(json.links).length <= 1) {
       if (!quiet) {
         bot.sendMessage(message.chat.id, '🤔 Hmmm … we can\'t seem to convert that link', {
           reply_to_message_id: message_id,
-        });
+        })
       }
 
-      return;
+      return
     }
 
     await bot.sendMessage(message.chat.id, createMessage(json), {
@@ -62,6 +62,6 @@ module.exports = (bot) => {
           ],
         ],
       },
-    });
-  };
-};
+    })
+  }
+}

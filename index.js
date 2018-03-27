@@ -19,5 +19,9 @@ require('./telegram');
 
 const { PORT = 3001 } = process.env;
 
-app.use('/facebook', require('./facebook'));
+// app.use('/facebook', require('./facebook'));
 app.listen(PORT);
+
+process.on('unhandledRejection', (e) => {
+  console.log(e);
+});
