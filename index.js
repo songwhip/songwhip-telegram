@@ -10,7 +10,7 @@ const app = require('express')();
  * Internal Dependencies
  */
 
-require('./reddit');
+// require('./reddit');
 require('./telegram');
 
 /**
