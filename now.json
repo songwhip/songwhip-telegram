@@ -1,4 +1,17 @@
 {
-  "name": "songwhip-bots",
-  "alias": "songwhip-bots"
+  "version": 2,
+  "name": "songwhip-telegram",
+  "alias": "telegram.songwhip.com",
+  "env": {
+    "DEBUG": "songwhip*,*tele*",
+    "SONGWHIP_WEB_URL": "https://songwhip.com",
+    "TELEGRAM_BOT_TOKEN": "331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A"
+  },
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ]
 }

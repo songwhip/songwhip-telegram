@@ -1,19 +1,30 @@
 {
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors"
+  ],
   "env": {
+    "browser": true,
     "node": true,
-    "mocha": true,
     "es6": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    }
   },
   "globals": {},
   "rules": {
     "no-empty": 0,
     "no-console": 0,
     "no-empty-pattern": 0,
-    "no-unused-vars": [2, { "varsIgnorePattern": "^h$" }],
+    "no-unused-vars": [2, { "ignoreRestSiblings": true }],
     "no-cond-assign": 1,
-    "semi": [2, "never"],
+    "semi": [2, "always"],
     "camelcase": 0,
     "comma-style": 2,
     "comma-dangle": ["error", "always-multiline"],
@@ -43,6 +54,14 @@
     "no-useless-concat": 2,
     "no-var": 2,
     "object-shorthand": 2,
-    "prefer-arrow-callback": 2
+    "prefer-arrow-callback": 2,
+
+    "import/no-unresolved": [2],
+
+    "jest/consistent-test-it": ["error", { "fn": "it" }],
+    "jest/no-disabled-tests": 0,
+    "jest/no-focused-tests": "error",
+
+    "react/prop-types": "warn"
   }
 }
