@@ -1,13 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "eslint:recommended",
-    "plugin:jest/recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors"
-  ],
+  "extends": ["eslint:recommended", "plugin:import/errors"],
   "env": {
-    "browser": true,
     "node": true,
     "es6": true
   },
@@ -56,12 +50,6 @@
     "object-shorthand": 2,
     "prefer-arrow-callback": 2,
 
-    "import/no-unresolved": [2],
-
-    "jest/consistent-test-it": ["error", { "fn": "it" }],
-    "jest/no-disabled-tests": 0,
-    "jest/no-focused-tests": "error",
-
-    "react/prop-types": "warn"
+    "import/no-unresolved": [2]
   }
 }

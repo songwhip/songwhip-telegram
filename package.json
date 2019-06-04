@@ -1,15 +1,14 @@
 {
   "name": "songwhip-telegram",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "now dev",
-    "deploy": "now",
-    "alias": "now alias",
-    "set-webhook": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/setWebhook",
-    "delete-webhook": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/deleteWebhook"
+    "deploy:staging": "now -e DEBUG=songwhip*,*tele* -e SONGWHIP_TELEGRAM_URL=https://songwhip-telegram.wilsonpage.now.sh -e TELEGRAM_BOT_TOKEN=331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A",
+    "deploy:production": "now --target production",
+    "set-webhook:staging": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/setWebhook",
+    "delete-webhook:staging": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/deleteWebhook",
+    "lint": "eslint app"
   },
   "dependencies": {
     "debug": "^3.0.0",

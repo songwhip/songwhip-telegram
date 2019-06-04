@@ -1,4 +1,4 @@
-const wait = require('../../utils/wait');
+const wait = require('./wait');
 
 const ACTION_TYPING = 'typing';
 

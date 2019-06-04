@@ -3,15 +3,15 @@
   "name": "songwhip-telegram",
   "alias": "telegram.songwhip.com",
   "env": {
-    "DEBUG": "songwhip*,*tele*",
     "SONGWHIP_WEB_URL": "https://songwhip.com",
-    "TELEGRAM_BOT_TOKEN": "331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A"
+    "SONGWHIP_TELEGRAM_URL": "https://telegram.songwhip.com",
+    "TELEGRAM_BOT_TOKEN": "@songwhip-telegram-bot-token"
   },
-  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "builds": [{ "src": "app/index.js", "use": "@now/node" }],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "/app/index.js"
     }
   ]
 }

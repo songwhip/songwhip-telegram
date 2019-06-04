@@ -8,11 +8,11 @@ const debug = require('debug')('songwhip-bots:telegram:commands');
  * Internal Dependencies
  */
 
-const getDisplayType = require('../../utils/get-display-type');
+const getDisplayType = require('../utils/get-display-type');
 const createMessage = require('../utils/create-message');
-const convert = require('../../utils/convert-link');
+const convert = require('../utils/convert-link');
 const typing = require('../utils/wait-typing');
-const wait = require('../../utils/wait');
+const wait = require('../utils/wait');
 
 /**
  * @param {import('telegraf/telegram')} bot

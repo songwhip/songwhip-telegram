@@ -8,7 +8,7 @@ const debug = require('debug')('songwhip-bots:telegram:commands');
  * Internal Dependencies
  */
 
-const wait = require('../../utils/wait');
+const wait = require('../utils/wait');
 
 /**
  * @param {import('telegraf/telegram')} bot
