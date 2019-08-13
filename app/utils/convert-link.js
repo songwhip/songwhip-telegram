@@ -3,11 +3,11 @@ const fetch = require('node-fetch');
 
 const { SONGWHIP_WEB_URL } = process.env;
 
-module.exports = async url => {
+module.exports = async (url) => {
   debug('get', url);
-  const response = await fetch(SONGWHIP_WEB_URL, {
+  const response = await fetch(`${SONGWHIP_WEB_URL}?utm_source=telegram`, {
     method: 'POST',
-    body: url
+    body: url,
   });
 
   if (!response.ok) return;
