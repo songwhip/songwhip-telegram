@@ -1,4 +1,3 @@
-
 const services = [
   /https?:\/\/(?:open|play)\.spotify\.com\/(album|artist|track)\/(.+)/,
   /https?:\/\/itunes\.apple\.com\/(?:([a-z]{2})\/)?(?:album|artist).+?id(\d+)/,
@@ -8,10 +7,13 @@ const services = [
   /https?:\/\/(?:www\.)?youtube\.com\/watch\?v=(?:.+)/,
   /https?:\/\/(?:www\.)?youtu.be\/(?:.+)/,
   /https?:\/\/soundcloud\.com\/(.+?)\/(.+)/,
+  /https?:\/\/(?:www\.)?tidal.com\/browse\/(artist|album|track)\/(\d+)/i,
+  /https?:\/\/(?:www\.)?tidal.com\/(artist|album|track)\/(\d+)/i,
 ];
 
 module.exports = (string) => {
   if (!string) return;
+
   for (let regex of services) {
     const match = string.match(regex);
     if (match) return match[0];
