@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "deploy:staging": "now -e DEBUG=songwhip*,*tele* -e SONGWHIP_TELEGRAM_URL=https://songwhip-telegram.wilsonpage.now.sh -e TELEGRAM_BOT_TOKEN=331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A",
-    "deploy:production": "now --target production",
+    "deploy:production": "now --prod",
     "set-webhook:staging": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/setWebhook",
     "delete-webhook:staging": "curl -F \"url=https://songwhip-telegram.wilsonpage.now.sh\" https://api.telegram.org/bot331172960:AAEswQQmYbQaISLa3ucifswzdVJl7775J-A/deleteWebhook",
     "lint": "eslint app"
