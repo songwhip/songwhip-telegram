@@ -1,10 +1,9 @@
 const debug = require('debug')('songwhip-telegram');
 const Telegraf = require('telegraf').default;
 const Telegram = require('telegraf/telegram');
-const micro = require('micro');
 
-const findMusicLink = require('./utils/find-music-link');
-const Commands = require('./commands');
+const findMusicLink = require('../lib/utils/find-music-link');
+const Commands = require('../lib/commands');
 
 const { TELEGRAM_BOT_TOKEN, SONGWHIP_TELEGRAM_URL } = process.env;
 
@@ -56,8 +55,7 @@ module.exports = async (req, res) => {
       return;
     }
 
-    const json = await micro.json(req);
-    await bot.handleUpdate(json, res);
+    await bot.handleUpdate(req.body, res);
 
     // respond otherwise inbound request times-out
     return res.end('ok');
@@ -68,11 +66,12 @@ module.exports = async (req, res) => {
   // (or whenever the service url changes)
   if (req.url === '/set-webhook') {
     const json = await bot.telegram.setWebhook(webhookUrl);
-    res.end(JSON.stringify(json));
+    res.json(json);
     return;
   }
 
   // return some info about the state of the webhook
   const webhookInfo = await telegram.getWebhookInfo();
-  res.end(JSON.stringify(webhookInfo));
+
+  res.json(webhookInfo);
 };
