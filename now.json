@@ -2,16 +2,23 @@
   "version": 2,
   "name": "songwhip-telegram",
   "alias": "telegram.songwhip.com",
+
   "env": {
     "SONGWHIP_WEB_URL": "https://songwhip.com",
     "SONGWHIP_TELEGRAM_URL": "https://telegram.songwhip.com",
     "TELEGRAM_BOT_TOKEN": "@songwhip-telegram-bot-token"
   },
-  "builds": [{ "src": "app/index.js", "use": "@now/node" }],
-  "routes": [
+
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/app/index.js"
+      "source": "/(.*)",
+      "destination": "/api/$1"
     }
-  ]
+  ],
+
+  "functions": {
+    "api/*": {
+      "memory": 128
+    }
+  }
 }
