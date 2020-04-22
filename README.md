@@ -9,3 +9,9 @@ A stateless 'function' endpoint that responds to HTTP events sent by Telegram Cl
 - The `now.json` defines production env vars, when we deploy to `staging` with `yarn deploy:staging` we override select env vars so that the `@SongwhipDevBot` token is used instead of `@SongwhipBot` and the staging endpoint `songwhip-telegram.wilsonpage.now.sh` is used.
 - Some bot configuration (eg. the command list or enabling 'inline' command) must be done from the Telegram app via the `@BotFather` bot.
 - We're using `now secret` from the CLi to store the Telegram bot token, which is used in `now.json` via the magic `@songwhip-telegram-bot-token` placeholder.
+
+## Establishing the webhook endpoint with Telegram
+
+1. Set the `SONGWHIP_TELEGRAM_URL` to the URL of the deployment
+2. Deploy
+3. Visit `/set-webhook` on the deployment to setup the connection between Telegram and the deployment endpoint.
