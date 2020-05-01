@@ -3,8 +3,8 @@
 
   "env": {
     "SONGWHIP_WEB_URL": "https://songwhip.com",
-    "SONGWHIP_TELEGRAM_URL": "https://songwhip-telegram.now.sh",
-    "TELEGRAM_BOT_TOKEN": "@songwhip-telegram-bot-token",
+    "SONGWHIP_TELEGRAM_URL": "https://songwhip-telegram-five.now.sh",
+    "TELEGRAM_BOT_TOKEN": "1077674016:AAFgHtmeOeGO80MZ_ClaM1pZy-1gfIA_JL8",
     "DEBUG": "songwhip*"
   },
 
