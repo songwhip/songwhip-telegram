@@ -73,5 +73,9 @@ module.exports = async (req, res) => {
   // return some info about the state of the webhook
   const webhookInfo = await telegram.getWebhookInfo();
 
-  res.json(webhookInfo);
+  res.json({
+    ...webhookInfo,
+    // exposes contains bot token!
+    url: undefined,
+  });
 };
